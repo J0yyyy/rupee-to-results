@@ -1,0 +1,459 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Rupee to Results</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,800;1,6..12,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a children's primer for public finance — one long reading column, chapters as "lessons", charts drawn to scale, one playground at the end */
+:root{
+  --paper:#f5f7fc; --card:#ffffff; --ink:#1d2552; --ink-soft:#4d5683; --rule:#d9def0;
+  --haldi:#e3a10e; --haldi-soft:#fdf1d2; --leaf:#2e8b57; --leaf-soft:#dcf1e4;
+  --chilli:#d2453b; --chilli-soft:#fbe1de; --sky:#3d6fd8; --sky-soft:#e1e9fb;
+  --skin1:#c98b5f; --skin2:#a96c45; --skin3:#e0a979; --hair:#2b1d16;
+  --display:"Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --body:"Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#12162b; --card:#1b2040; --ink:#e9ecfb; --ink-soft:#a9b0d6; --rule:#2e3560;
+  --haldi:#f2b737; --haldi-soft:#3a3016; --leaf:#5cc488; --leaf-soft:#173527; --chilli:#f0776d; --chilli-soft:#3f1f22;
+  --sky:#7ea2f2; --sky-soft:#1f2b52; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#12162b; --card:#1b2040; --ink:#e9ecfb; --ink-soft:#a9b0d6; --rule:#2e3560;
+  --haldi:#f2b737; --haldi-soft:#3a3016; --leaf:#5cc488; --leaf-soft:#173527; --chilli:#f0776d; --chilli-soft:#3f1f22;
+  --sky:#7ea2f2; --sky-soft:#1f2b52; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:860px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,6vw,3.6rem);font-weight:800}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800}
+h3{font-size:1.25rem;font-weight:700}
+p{margin:0;max-width:65ch}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-soft)}
+section{padding-block:56px 8px;display:grid;gap:22px}
+.lesson{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:flex;gap:10px;align-items:center}
+.lesson b{background:var(--ink);color:var(--paper);border-radius:6px;padding:2px 8px;font-weight:600}
+.tag{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--haldi-soft);color:var(--ink);border:1px dashed var(--haldi)}
+.box{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:22px}
+.say{border-left:4px solid var(--haldi);padding:4px 0 4px 16px;font-size:1.08rem}
+.say strong{font-family:var(--display);font-size:1.15rem}
+.svgbox{overflow-x:auto}
+svg text{font-family:var(--body);fill:var(--ink)}
+svg .t-soft{fill:var(--ink-soft)}
+svg .t-mono{font-family:var(--mono)}
+
+/* hero */
+header{padding-block:48px 8px;display:grid;gap:18px}
+.primer{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.primer span{font-family:var(--display);font-weight:800;font-size:1.05rem;padding:6px 14px;border-radius:10px;border:2px solid var(--ink)}
+.primer span:nth-child(1){background:var(--haldi-soft)} .primer span:nth-child(2){background:var(--sky-soft)} .primer span:nth-child(3){background:var(--leaf-soft)} .primer span:nth-child(4){background:var(--chilli-soft)}
+.primer i{font-style:normal;align-self:center;color:var(--ink-soft);font-family:var(--mono)}
+
+/* cast */
+.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.who{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:14px}
+.who svg{width:72px;height:72px}
+.who h3{font-size:1.05rem}
+.who .role{font-size:.82rem;color:var(--ink-soft);line-height:1.35}
+.who .line{font-size:.9rem;margin-top:4px;font-style:italic}
+
+/* two-col */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+.two > *{min-width:0}
+.lens{border-radius:14px;padding:18px;display:grid;gap:8px;border:2px solid var(--ink)}
+.lens.q{background:var(--sky-soft)} .lens.l{background:var(--leaf-soft)}
+.lens .kid{font-family:var(--display);font-size:1.15rem;font-weight:700}
+
+/* ladder */
+.ladder{display:grid;gap:10px}
+.rung{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:start;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px}
+.rung .lvl{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
+.dots{display:flex;gap:4px;margin-top:6px}.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink)}.dots i.on{background:var(--chilli)}
+@media (max-width:520px){.rung{grid-template-columns:1fr}}
+
+/* states */
+.states{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:720px){.states{grid-template-columns:1fr}}
+.st{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px;display:grid;gap:8px;align-content:start}
+.st .q{font-family:var(--mono);font-size:.75rem;color:var(--ink-soft)}
+.meter{height:10px;border-radius:99px;background:var(--rule);overflow:hidden}.meter i{display:block;height:100%;background:var(--haldi)}
+.st ul{margin:0;padding-left:18px;font-size:.92rem}
+
+/* playground */
+.play{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:22px;display:grid;gap:18px}
+.controls{display:grid;gap:12px}
+input[type=range]{width:100%;accent-color:var(--haldi)}
+.toggle{display:flex;gap:10px;align-items:center;font-weight:600;cursor:pointer}
+.toggle input{width:20px;height:20px;accent-color:var(--leaf)}
+.scores{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:520px){.scores{grid-template-columns:1fr}}
+.score{border-radius:12px;padding:14px;background:var(--paper);border:1px solid var(--rule)}
+.score .n{font-family:var(--display);font-size:2.2rem;font-weight:800;line-height:1}
+.score .bar{height:8px;border-radius:9px;background:var(--rule);margin-top:8px;overflow:hidden}.score .bar i{display:block;height:100%;transition:width .3s}
+.verdict{padding:14px 16px;border-radius:12px;font-weight:600}
+.v-good{background:var(--leaf-soft)} .v-warn{background:var(--haldi-soft)} .v-bad{background:var(--chilli-soft)}
+
+/* checklist */
+.check{display:grid;gap:8px}
+.check label{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--card);cursor:pointer}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--ink)}
+.check .trk{font-family:var(--mono);font-size:.68rem;padding:2px 7px;border-radius:99px;white-space:nowrap}
+.trk.qn{background:var(--sky-soft)} .trk.ql{background:var(--leaf-soft)} .trk.ad{background:var(--haldi-soft)}
+.prog{display:grid;gap:8px}
+.prog div{display:grid;grid-template-columns:150px 1fr 48px;gap:10px;align-items:center;font-size:.9rem}
+.prog .meter i.qn{background:var(--sky)} .prog .meter i.ql{background:var(--leaf)} .prog .meter i.ad{background:var(--haldi)}
+
+/* abc */
+.abc{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.abc div{display:grid;grid-template-columns:48px 1fr;gap:12px;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:12px}
+.abc b{font-family:var(--display);font-size:2rem;line-height:1;color:var(--haldi);font-weight:800}
+.abc span{font-size:.9rem;line-height:1.4}.abc em{font-style:normal;font-weight:800;display:block}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+footer{margin-top:48px;font-size:.85rem;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:16px}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="tag">QoE Task Force · explained from zero</span>
+  <h1>Rupee to Results</h1>
+  <p style="font-size:1.15rem">Every rupee a state spends on a child should end as a healthier child. This page follows one rupee through the system, meets the people who touch it, and shows the two questions the Task Force asks at every step.</p>
+  <div class="primer"><span>₹ Money</span><i>→</i><span>Inputs</span><i>→</i><span>Outputs</span><i>→</i><span>Outcomes</span></div>
+  <p class="muted" style="font-size:.9rem">Departments and posts named here are real. District and scheme numbers are <b>illustrative</b>, built to teach the logic, and marked on each chart.</p>
+</header>
+
+<!-- LESSON 1 -->
+<section>
+  <div class="lesson"><b>A</b> Lesson 1 · The whole idea in one breath</div>
+  <h2>Money is not the goal. A child growing well is.</h2>
+  <p>Think of a school tiffin. Your mother gives you ₹50 (<b>money</b>). You buy rice, dal and an egg (<b>inputs</b>). You eat the full meal (<b>output</b>). Over months you grow taller and stronger (<b>outcome</b>). If the ₹50 gets lost on the way, or buys chips instead of dal, the outcome never comes, even though "₹50 was spent".</p>
+  <div class="box svgbox"><svg id="chain" viewBox="0 0 820 230" width="100%" style="min-width:640px"></svg></div>
+  <p class="say"><strong>The Task Force in one line:</strong> India's states already know this chain matters. They have frameworks. What they lack is a habit of using it when they actually decide where money goes. That is an <b>adoption problem</b>, not a framework problem.</p>
+</section>
+
+<!-- LESSON 2 -->
+<section>
+  <div class="lesson"><b>B</b> Lesson 2 · Meet the people</div>
+  <h2>Six people touch one nutrition rupee</h2>
+  <p>We'll follow nutrition money under <b>Saksham Anganwadi &amp; Poshan 2.0</b>, the Centre–State scheme that pays for Anganwadi meals, Take-Home Ration (THR) and growth monitoring. In Maharashtra it is run by the <b>Women &amp; Child Development (WCD) Department</b> through ICDS.</p>
+  <div class="cast" id="cast"></div>
+</section>
+
+<!-- LESSON 3 -->
+<section>
+  <div class="lesson"><b>C</b> Lesson 3 · Money moves in a circle, not a line</div>
+  <h2>The budget loop</h2>
+  <p>A budget is not made once in February and forgotten. It turns like a wheel, every year. A tool that only helps at one spoke stays on the side. The Task Force wants tools that help at every spoke.</p>
+  <div class="box svgbox"><svg id="loop" viewBox="0 0 760 420" width="100%" style="min-width:560px"></svg></div>
+</section>
+
+<!-- LESSON 4 -->
+<section>
+  <div class="lesson"><b>D</b> Lesson 4 · Two big questions</div>
+  <h2>Two tracks, one purpose</h2>
+  <div class="two">
+    <div class="lens q"><span class="tag" style="justify-self:start;background:var(--card)">Quantity Track</span><div class="kid">"Is the right amount of money reaching the right place at the right time?"</div><p>It's about <b>flow</b>. Faster to answer. Uses budget and treasury data.</p></div>
+    <div class="lens l"><span class="tag" style="justify-self:start;background:var(--card)">Quality Track</span><div class="kid">"Is what we buy actually making children healthier?"</div><p>It's about <b>effectiveness</b>. Slower to answer. Needs many years and many states of data.</p></div>
+  </div>
+  <p>Sunita's Anganwadi can fail in two ways. Either the THR never arrives (a <b>quantity</b> problem), or it arrives every month but children still don't grow because THR alone isn't the best buy (a <b>quality</b> problem). You must check the first before you can judge the second.</p>
+</section>
+
+<!-- LESSON 5 -->
+<section>
+  <div class="lesson"><b>E</b> Lesson 5 · Quantity Track, lens 1</div>
+  <h2>Allocative efficiency: is the money going where the need is?</h2>
+  <p>Imagine five children at a table. One is very hungry, one is full. If you give equal rotis, or more rotis to the full one, the table is badly fed even though rotis were "distributed". Districts are the same.</p>
+  <div class="box svgbox"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px"><h3>Share of need vs share of nutrition money</h3><span class="tag">Illustrative data</span></div><svg id="alloc" viewBox="0 0 760 330" width="100%" style="min-width:560px"></svg></div>
+  <p><b>How to read it:</b> Nandurbar, Gadchiroli and Palghar (tribal, high-burden) carry about 74% of the stunting burden in this example but get 41% of the money. Pune and Mumbai Suburban get more than their share of need. The output of this lens is a <b>judgement</b>: "the structure of spending is not aligned with need."</p>
+  <p class="muted">The same lens also checks <b>across departments</b>. Nutrition is not only WCD: water and sanitation (Water Supply &amp; Sanitation Dept), anaemia care (Public Health Dept), and the school mid-day meal (School Education Dept) all spend on the same child. Are they balanced?</p>
+</section>
+
+<!-- LESSON 6 -->
+<section>
+  <div class="lesson"><b>F</b> Lesson 6 · Quantity Track, lens 2</div>
+  <h2>Technical efficiency: does the money flow without leaks or delays?</h2>
+  <p>Now picture water in a pipe from the tank (State budget) to the tap (Anganwadi). Even if the tank is full, a leak or a block means the tap drips.</p>
+  <div class="box svgbox"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px"><h3>Where ₹100 of budget ends up</h3><span class="tag">Illustrative data</span></div><svg id="funnel" viewBox="0 0 760 270" width="100%" style="min-width:560px"></svg></div>
+  <div class="box svgbox"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px"><h3>When the money is spent, month by month</h3><span class="tag">Illustrative data</span></div><svg id="bunch" viewBox="0 0 760 300" width="100%" style="min-width:560px"></svg></div>
+  <p><b>How to read it:</b> 28% of the year's money is spent in March alone. That's <b>end-of-year bunching</b>: children were short of THR from April to February, and March buying is rushed. The output of this lens is a <b>diagnosis</b>: "the block is between district and project level; fix the release process."</p>
+</section>
+
+<!-- LESSON 7 -->
+<section>
+  <div class="lesson"><b>G</b> Lesson 7 · Quality Track</div>
+  <h2>Three ways to ask "is this the best buy?"</h2>
+  <p>Back to the tiffin. Before shopping, you can read what nutrition experts say about egg vs biscuits (<b>Cost-Benefit</b>). You can look at classmates whose mothers packed different tiffins and see who grew more (<b>Comparative Effectiveness</b>). Or you can watch your own child for a year (<b>Value for Money</b>). The last one only works if your child actually ate the tiffin every day.</p>
+  <div class="ladder">
+    <div class="rung"><div><div class="lvl">Can start now</div><div class="dots"><i class="on"></i><i></i><i></i></div></div><div><h3>1 · Cost-Benefit Analysis</h3><p>Which design gives more outcome per rupee? Uses evidence from other states and global studies. Works even if your own delivery is weak. Best used <b>before</b> money is committed.</p></div></div>
+    <div class="rung"><div><div class="lvl">Needs others' delivery</div><div class="dots"><i class="on"></i><i class="on"></i><i></i></div></div><div><h3>2 · Comparative Effectiveness</h3><p>Compares input mixes across states or districts. Reliable only if the <b>comparison</b> districts actually spent their money.</p></div></div>
+    <div class="rung"><div><div class="lvl">Needs your delivery</div><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></div></div><div><h3>3 · Value for Money (3 Es)</h3><p><b>Economy</b>: did we buy THR cheaply? <b>Efficiency</b>: did inputs become services? <b>Effectiveness</b>: did services move stunting? Meaningless if your own spending is erratic, which is exactly what the Quantity Track checks.</p></div></div>
+  </div>
+  <div class="box svgbox"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px"><h3>What the Quality Tool's output looks like: effectiveness ranking</h3><span class="tag">Illustrative data</span></div><svg id="rank" viewBox="0 0 760 290" width="100%" style="min-width:560px"></svg></div>
+  <p class="muted">Read it as: "per ₹1 crore, how many children are moved out of stunting risk". The bars here are invented to show the shape of the output, not real evidence on these interventions.</p>
+</section>
+
+<!-- LESSON 8 -->
+<section>
+  <div class="lesson"><b>H</b> Lesson 8 · From idea to tool</div>
+  <h2>Frameworks don't run themselves</h2>
+  <p>A recipe book doesn't cook. The Task Force's answer is <b>codification</b>: putting the thinking into two tools that officers can open during the meetings they already have.</p>
+  <div class="two">
+    <div class="box" style="display:grid;gap:8px"><span class="tag" style="justify-self:start">Quantity Tool · like a thermometer</span><p>Tells you quickly if something is wrong and where: which districts are under-funded vs need, where funds stall, which months bunch.</p><p class="muted" style="font-size:.9rem">Feeds: diagnostic reports, reallocation menus.</p></div>
+    <div class="box" style="display:grid;gap:8px"><span class="tag" style="justify-self:start">Quality Tool · like a report card</span><p>Tells you which interventions are earning their money and which are not, ranked by outcome per rupee.</p><p class="muted" style="font-size:.9rem">Feeds: scheme redesign, next year's priorities.</p></div>
+  </div>
+  <p>Data plan: start with <b>public data</b> (budget documents, NFHS, Poshan Tracker dashboards), add <b>government admin data</b> as states share it, and fill gaps with <b>clearly marked dummy data</b> so officers see the full output and know what their own data would unlock.</p>
+</section>
+
+<!-- LESSON 9 -->
+<section>
+  <div class="lesson"><b>I</b> Lesson 9 · Three states, three stages</div>
+  <h2>How adoption grows</h2>
+  <p>Like learning to swim: first you stand in the shallow end, then you swim one length with a coach, then you swim alone. Each state is at a different depth.</p>
+  <div class="states">
+    <div class="st"><span class="q">Q3 · Starting point</span><h3>Odisha</h3><div class="meter"><i style="width:30%"></i></div><p style="font-size:.92rem"><b>WCD &amp; Mission Shakti Dept.</b> Quantity Track diagnostics on nutrition money. Goal: make the problem visible and earn trust.</p><ul><li>Output: diagnostic reports</li><li>Lesson: how to start from zero</li></ul></div>
+    <div class="st"><span class="q">Q3 · One sharp decision</span><h3>Karnataka</h3><div class="meter"><i style="width:60%"></i></div><p style="font-size:.92rem">Anchored with the <b>Development Commissioner</b>. Nutrition only, tied to specific allocation and redistribution decisions.</p><ul><li>Output: decision briefs</li><li>Lesson: a template for plugging into reviews</li></ul></div>
+    <div class="st"><span class="q">Q2 · Full adoption</span><h3>Maharashtra</h3><div class="meter"><i style="width:90%"></i></div><p style="font-size:.92rem"><b>Finance Dept + WCD, School Education, Public Health.</b> Outputs used in the <b>supplementary budget</b>.</p><ul><li>Output: reallocation menus</li><li>Lesson: does the Quantity Tool survive a live budget?</li></ul></div>
+  </div>
+</section>
+
+<!-- LESSON 10 -->
+<section>
+  <div class="lesson"><b>J</b> Lesson 10 · Solve it yourself</div>
+  <h2>You are Rajesh Kulkarni, Finance Department, Maharashtra</h2>
+  <p>Supplementary demands are coming. WCD asks: "Should we move nutrition money from Pune and Mumbai Suburban to the three tribal districts?" Use both Quantity lenses together. Move the slider, then try fixing the pipeline.</p>
+  <div class="play">
+    <div class="controls">
+      <label for="move"><b>Money moved to tribal districts:</b> <span class="mono" id="moveVal">0</span> percentage points</label>
+      <input type="range" id="move" min="0" max="30" step="1" value="0">
+      <label class="toggle" for="fix"><input type="checkbox" id="fix"> Also fix the pipeline in tribal districts (release in tranches, clear vacancies) so 80% gets spent</label>
+    </div>
+    <div class="svgbox"><svg id="playChart" viewBox="0 0 760 300" width="100%" style="min-width:560px"></svg></div>
+    <div class="scores">
+      <div class="score"><div class="muted" style="font-size:.85rem">Allocative · money matches need</div><div class="n mono" id="sAlign">67</div><div class="bar"><i id="bAlign" style="background:var(--sky)"></i></div></div>
+      <div class="score"><div class="muted" style="font-size:.85rem">Technical · of every ₹100, actually spent at Anganwadis</div><div class="n mono" id="sReach">77</div><div class="bar"><i id="bReach" style="background:var(--leaf)"></i></div></div>
+    </div>
+    <div class="verdict" id="verdict"></div>
+    <span class="tag" style="justify-self:start">Illustrative data · teaching model</span>
+  </div>
+  <p class="say"><strong>The lesson:</strong> moving money to need without fixing the pipe makes alignment look better but less money reaches children. The two lenses only work together. That is why the Quantity Track comes first, and why Value for Money waits for steady delivery.</p>
+</section>
+
+<!-- LESSON 11 -->
+<section>
+  <div class="lesson"><b>K</b> Lesson 11 · Where your work fits</div>
+  <h2>You've done a lot in parts. Tick what's done.</h2>
+  <p>Each piece of work belongs to a track. Tick what your team already has and see which part of the chain is still open. Your ticks stay in this browser only.</p>
+  <div class="prog box" id="prog"></div>
+  <div class="check" id="check"></div>
+</section>
+
+<!-- LESSON 12 -->
+<section>
+  <div class="lesson"><b>L</b> The ABC</div>
+  <h2>Words to remember</h2>
+  <div class="abc" id="abc"></div>
+</section>
+
+<footer>Built from the internal note "Linking Spending to Outcomes: An Actionable Agenda for Quality of Public Expenditure" (QoE Task Force). Department names are real; district figures, rankings and the playground are illustrative and not official data.</footer>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+function el(tag,attrs={},parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+/* ---------- Avatars ---------- */
+function avatar(o){
+  const s=document.createElementNS(NS,"svg");s.setAttribute("viewBox","0 0 80 80");s.setAttribute("aria-hidden","true");
+  el("circle",{cx:40,cy:40,r:39,fill:`var(${o.bg})`},s);
+  el("path",{d:"M14 80 Q14 52 40 52 Q66 52 66 80 Z",fill:`var(${o.cloth})`},s);
+  if(o.saree) el("path",{d:"M24 56 L56 80 L46 80 L22 60 Z",fill:"var(--haldi)"},s);
+  el("circle",{cx:40,cy:34,r:15,fill:`var(${o.skin})`},s);
+  if(o.long) el("path",{d:"M24 34 Q24 16 40 16 Q56 16 56 34 L56 46 Q52 40 52 30 Q40 24 28 30 Q28 40 24 46 Z",fill:"var(--hair)"},s);
+  else el("path",{d:"M25 32 Q25 17 40 17 Q55 17 55 32 Q50 24 40 24 Q30 24 25 32 Z",fill:"var(--hair)"},s);
+  if(o.bun) el("circle",{cx:40,cy:15,r:6,fill:"var(--hair)"},s);
+  if(o.child){el("circle",{cx:30,cy:20,r:5,fill:"var(--hair)"},s);el("circle",{cx:50,cy:20,r:5,fill:"var(--hair)"},s)}
+  el("circle",{cx:34.5,cy:35,r:1.8,fill:"#1a1a1a"},s);el("circle",{cx:45.5,cy:35,r:1.8,fill:"#1a1a1a"},s);
+  el("path",{d:"M35 41 Q40 45 45 41",stroke:"#1a1a1a","stroke-width":1.6,fill:"none","stroke-linecap":"round"},s);
+  if(o.specs){el("circle",{cx:34.5,cy:35,r:4.5,fill:"none",stroke:"#1a1a1a","stroke-width":1.4},s);el("circle",{cx:45.5,cy:35,r:4.5,fill:"none",stroke:"#1a1a1a","stroke-width":1.4},s);el("line",{x1:39,y1:35,x2:41,y2:35,stroke:"#1a1a1a","stroke-width":1.4},s)}
+  if(o.bindi) el("circle",{cx:40,cy:28,r:1.4,fill:"var(--chilli)"},s);
+  if(o.prop==="file"){el("rect",{x:50,y:58,width:16,height:20,rx:2,fill:"var(--chilli)"},s);el("text",{x:58,y:72,"text-anchor":"middle","font-size":9,style:"fill:#fff;font-weight:800"},s,"₹")}
+  if(o.prop==="clip"){el("rect",{x:52,y:56,width:15,height:20,rx:2,fill:"#fff",stroke:"#1a1a1a"},s);el("line",{x1:55,y1:62,x2:64,y2:62,stroke:"#1a1a1a"},s);el("line",{x1:55,y1:67,x2:64,y2:67,stroke:"#1a1a1a"},s)}
+  if(o.prop==="scale"){el("rect",{x:50,y:66,width:20,height:10,rx:2,fill:"var(--sky)"},s);el("line",{x1:52,y1:66,x2:68,y2:66,stroke:"#1a1a1a","stroke-width":2},s)}
+  if(o.prop==="bowl"){el("path",{d:"M48 64 Q58 76 68 64 Z",fill:"var(--haldi)",stroke:"#1a1a1a"},s)}
+  if(o.prop==="map"){el("rect",{x:50,y:58,width:18,height:16,rx:2,fill:"var(--leaf)"},s);el("circle",{cx:59,cy:65,r:2.5,fill:"var(--chilli)"},s)}
+  if(o.prop==="chart"){el("rect",{x:50,y:58,width:18,height:16,rx:2,fill:"#fff",stroke:"#1a1a1a"},s);[[53,6],[58,10],[63,4]].forEach(([x,h])=>el("rect",{x,y:72-h,width:3,height:h,fill:"var(--sky)"},s))}
+  return s;
+}
+const cast=[
+  {n:"Rajesh Kulkarni",r:"Principal Secretary (Expenditure), Finance Dept, Maharashtra",l:"\"I decide how much each department gets and when it is released.\"",a:{bg:"--sky-soft",cloth:"--ink",skin:"--skin3",specs:1,prop:"file"}},
+  {n:"Meera Deshpande",r:"Commissioner, ICDS, Women & Child Development Dept",l:"\"I own the nutrition schemes and ask Finance for money.\"",a:{bg:"--leaf-soft",cloth:"--leaf",skin:"--skin1",long:1,bindi:1,prop:"clip"}},
+  {n:"Anil Pawar",r:"District Programme Officer (WCD), Nandurbar",l:"\"Funds reach me late, so THR reaches Anganwadis late.\"",a:{bg:"--haldi-soft",cloth:"--sky",skin:"--skin2",prop:"map"}},
+  {n:"Sunita Valvi",r:"Anganwadi Worker, Akkalkuwa block",l:"\"I weigh the children and give out THR, when it arrives.\"",a:{bg:"--chilli-soft",cloth:"--chilli",skin:"--skin2",bun:1,saree:1,bindi:1,prop:"scale"}},
+  {n:"Riya, age 2",r:"The child the whole system exists for",l:"\"I just need enough good food, on time.\"",a:{bg:"--haldi-soft",cloth:"--haldi",skin:"--skin2",child:1,prop:"bowl"}},
+  {n:"The Task Force analyst",r:"CEGIS · Quality of Expenditure team",l:"\"I connect Rajesh's spreadsheet to Riya's growth chart.\"",a:{bg:"--sky-soft",cloth:"--ink-soft",skin:"--skin1",long:1,prop:"chart"}},
+];
+const castEl=document.getElementById("cast");
+cast.forEach(c=>{const d=document.createElement("div");d.className="who";d.appendChild(avatar(c.a));const t=document.createElement("div");t.innerHTML=`<h3>${c.n}</h3><div class="role">${c.r}</div><div class="line">${c.l}</div>`;d.appendChild(t);castEl.appendChild(d)});
+
+/* ---------- Chain ---------- */
+(function(){
+  const s=document.getElementById("chain");
+  const steps=[["Money","₹100 budgeted","Finance Dept","--haldi-soft"],["Inputs","THR packets, cook staff","WCD Dept","--sky-soft"],["Outputs","Child gets THR 25 days/month","Anganwadi","--leaf-soft"],["Outcomes","Child grows, stunting falls","Riya","--chilli-soft"]];
+  const w=180,gap=33;
+  steps.forEach((st,i)=>{const x=10+i*(w+gap);
+    el("rect",{x,y:30,width:w,height:130,rx:14,fill:`var(${st[3]})`,stroke:"var(--ink)","stroke-width":2},s);
+    el("text",{x:x+16,y:64,"font-size":22,style:"font-family:var(--display);font-weight:800"},s,st[0]);
+    const words=st[1].split(" ");let line="",y=92;words.forEach(wd=>{if((line+wd).length>20){el("text",{x:x+16,y,"font-size":14},s,line.trim());line="";y+=19}line+=wd+" "});el("text",{x:x+16,y,"font-size":14},s,line.trim());
+    el("text",{x:x+16,y:148,"font-size":12,class:"t-soft t-mono"},s,st[2]);
+    if(i<3){el("path",{d:`M${x+w+4} 95 L${x+w+gap-6} 95`,stroke:"var(--ink)","stroke-width":3},s);el("path",{d:`M${x+w+gap-12} 88 L${x+w+gap-4} 95 L${x+w+gap-12} 102`,fill:"none",stroke:"var(--ink)","stroke-width":3},s)}
+  });
+  el("path",{d:"M10 185 L403 185",stroke:"var(--sky)","stroke-width":5,"stroke-linecap":"round"},s);
+  el("text",{x:10,y:212,"font-size":14,style:"font-weight:800;fill:var(--sky)"},s,"Quantity Track checks this half");
+  el("path",{d:"M223 200 L810 200",stroke:"var(--leaf)","stroke-width":5,"stroke-linecap":"round"},s);
+  el("text",{x:810,y:224,"font-size":14,"text-anchor":"end",style:"font-weight:800;fill:var(--leaf)"},s,"Quality Track checks the whole chain");
+})();
+
+/* ---------- Loop ---------- */
+(function(){
+  const s=document.getElementById("loop");const cx=380,cy=210,R=140;
+  el("circle",{cx,cy,r:R,fill:"none",stroke:"var(--rule)","stroke-width":14},s);
+  el("circle",{cx,cy,r:R,fill:"none",stroke:"var(--haldi)","stroke-width":4,"stroke-dasharray":"10 10"},s);
+  el("text",{x:cx,y:cy-6,"text-anchor":"middle","font-size":22,style:"font-family:var(--display);font-weight:800"},s,"One budget year");
+  el("text",{x:cx,y:cy+20,"text-anchor":"middle","font-size":13,class:"t-soft"},s,"lessons feed the next year");
+  const nodes=[
+    [-90,"1 · Formulate","Oct–Feb: departments ask,","Finance decides. Budget in March.","Quality Tool: what to fund"],
+    [0,"2 · Release","Apr onwards: Finance releases","funds in tranches to WCD","Quantity Tool: is it flowing?"],
+    [90,"3 · Review & revise","Mid-year: supplementary","demands, re-allocation","Quantity Tool: move money"],
+    [180,"4 · Redesign","Schemes reworked on","what performed","Quality Tool: what worked"]];
+  nodes.forEach(([deg,t,a,b,tool])=>{const r=deg*Math.PI/180;const x=cx+R*Math.cos(r),y=cy+R*Math.sin(r);
+    el("circle",{cx:x,cy:y,r:12,fill:"var(--ink)"},s);
+    let tx=x,ty=y,anchor="middle";
+    if(deg===-90){ty=y-62} if(deg===90){ty=y+32} if(deg===0){tx=x+22;anchor="start";ty=y-20} if(deg===180){tx=x-22;anchor="end";ty=y-20}
+    el("text",{x:tx,y:ty,"text-anchor":anchor,"font-size":16,style:"font-weight:800"},s,t);
+    el("text",{x:tx,y:ty+18,"text-anchor":anchor,"font-size":12.5,class:"t-soft"},s,a);
+    el("text",{x:tx,y:ty+34,"text-anchor":anchor,"font-size":12.5,class:"t-soft"},s,b);
+    el("text",{x:tx,y:ty+51,"text-anchor":anchor,"font-size":12,class:"t-mono",style:"fill:var(--chilli);font-weight:600"},s,tool);
+  });
+})();
+
+/* ---------- Allocation ---------- */
+const D=[{n:"Nandurbar",need:26.4,money:14,util:.58,tribal:1},{n:"Gadchiroli",need:23.0,money:12,util:.55,tribal:1},{n:"Palghar",need:24.1,money:15,util:.64,tribal:1},{n:"Pune",need:13.8,money:30,util:.88},{n:"Mumbai Suburban",need:12.6,money:29,util:.90}];
+function pairedBars(s,data,max){
+  while(s.firstChild)s.removeChild(s.firstChild);
+  const L=150,W=560,top=40,rowH=52,sc=v=>v/max*W;
+  [0,10,20,30,40].filter(v=>v<=max).forEach(v=>{const x=L+sc(v);el("line",{x1:x,y1:top-8,x2:x,y2:top+rowH*data.length,stroke:"var(--rule)"},s);el("text",{x,y:top+rowH*data.length+18,"text-anchor":"middle","font-size":12,class:"t-soft t-mono"},s,v+"%")});
+  data.forEach((d,i)=>{const y=top+i*rowH;
+    el("text",{x:L-12,y:y+24,"text-anchor":"end","font-size":14,style:"font-weight:700"},s,d.n);
+    el("rect",{x:L,y,width:sc(d.need),height:16,rx:3,fill:"var(--chilli)"},s);
+    el("text",{x:L+sc(d.need)+6,y:y+13,"font-size":12,class:"t-mono"},s,d.need.toFixed(1)+"%");
+    el("rect",{x:L,y:y+20,width:sc(d.money),height:16,rx:3,fill:"var(--sky)"},s);
+    el("text",{x:L+sc(d.money)+6,y:y+33,"font-size":12,class:"t-mono"},s,d.money.toFixed(1)+"%");
+  });
+  el("rect",{x:L,y:6,width:14,height:12,rx:2,fill:"var(--chilli)"},s);el("text",{x:L+20,y:16,"font-size":13},s,"Share of stunted children (need)");
+  el("rect",{x:L+270,y:6,width:14,height:12,rx:2,fill:"var(--sky)"},s);el("text",{x:L+290,y:16,"font-size":13},s,"Share of nutrition money");
+}
+pairedBars(document.getElementById("alloc"),D,40);
+
+/* ---------- Funnel ---------- */
+(function(){
+  const s=document.getElementById("funnel");
+  const st=[["Budgeted (State)",100,"Finance Dept"],["Released to WCD",92,"Treasury / BEAMS"],["Released to districts",82,"Commissioner ICDS"],["Reached ICDS projects",70,"District office"],["Spent at Anganwadis",61,"Sunita's centre"]];
+  const L=200,W=440,sc=v=>v/100*W;
+  st.forEach(([n,v,who],i)=>{const y=12+i*50,w=sc(v),x=L+(W-w)/2;
+    el("rect",{x,y,width:w,height:38,rx:6,fill:"var(--sky)",opacity:1-i*0.13},s);
+    el("text",{x:L+W/2,y:y+25,"text-anchor":"middle","font-size":15,class:"t-mono",style:"fill:#fff;font-weight:600"},s,"₹"+v);
+    el("text",{x:L-14,y:y+18,"text-anchor":"end","font-size":13.5,style:"font-weight:700"},s,n);
+    el("text",{x:L-14,y:y+33,"text-anchor":"end","font-size":11.5,class:"t-soft"},s,who);
+    if(i>0){const drop=st[i-1][1]-v;el("text",{x:L+W+14,y:y+6,"font-size":12.5,class:"t-mono",style:"fill:var(--chilli);font-weight:600"},s,"−₹"+drop+(drop>=12?"  ← biggest stall":""))}
+  });
+})();
+
+/* ---------- Bunching ---------- */
+(function(){
+  const s=document.getElementById("bunch");const m=["Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar"],v=[2,3,4,5,6,7,6,7,8,10,14,28];
+  const L=50,T=20,H=220,W=680,max=30,bw=W/12;
+  [0,10,20,30].forEach(t=>{const y=T+H-t/max*H;el("line",{x1:L,y1:y,x2:L+W,y2:y,stroke:"var(--rule)"},s);el("text",{x:L-8,y:y+4,"text-anchor":"end","font-size":12,class:"t-soft t-mono"},s,t+"%")});
+  const even=100/12;const ey=T+H-even/max*H;
+  v.forEach((x,i)=>{const h=x/max*H;el("rect",{x:L+i*bw+8,y:T+H-h,width:bw-16,height:h,rx:3,fill:i===11?"var(--chilli)":"var(--sky)"},s);
+    el("text",{x:L+i*bw+bw/2,y:T+H+18,"text-anchor":"middle","font-size":12},s,m[i]);
+    el("text",{x:L+i*bw+bw/2,y:T+H-h-6,"text-anchor":"middle","font-size":11.5,class:"t-mono"},s,x)});
+  el("line",{x1:L,y1:ey,x2:L+W,y2:ey,stroke:"var(--leaf)","stroke-width":2,"stroke-dasharray":"6 5"},s);
+  el("text",{x:L+6,y:ey-6,"font-size":12.5,style:"fill:var(--leaf);font-weight:700"},s,"Healthy pace ≈ 8.3% a month");
+})();
+
+/* ---------- Ranking ---------- */
+(function(){
+  const s=document.getElementById("rank");
+  const d=[["Growth monitoring + counselling",410],["Maternal IFA & ANC visits",360],["Hot cooked meal (3–6 yrs)",240],["Take-Home Ration (6 m–3 yrs)",190],["Creche / day care",120]];
+  const L=250,W=430,max=450,sc=v=>v/max*W;
+  d.forEach(([n,v],i)=>{const y=10+i*52;
+    el("text",{x:L-12,y:y+22,"text-anchor":"end","font-size":13.5,style:"font-weight:700"},s,n);
+    el("rect",{x:L,y:y+6,width:sc(v),height:24,rx:4,fill:i<2?"var(--leaf)":"var(--ink-soft)"},s);
+    el("text",{x:L+sc(v)+8,y:y+23,"font-size":12.5,class:"t-mono"},s,v);
+  });
+  el("text",{x:L,y:278,"font-size":12,class:"t-soft"},s,"Children moved out of stunting risk per ₹1 crore (invented values)");
+})();
+
+/* ---------- Playground ---------- */
+const move=document.getElementById("move"),fix=document.getElementById("fix");
+function runPlay(){
+  const m=+move.value,f=fix.checked;document.getElementById("moveVal").textContent=m;
+  const gaps=D.filter(d=>d.tribal).map(d=>d.need-d.money),gs=gaps.reduce((a,b)=>a+b,0);
+  let ti=0;const now=D.map(d=>{let money=d.money,util=d.util;
+    if(d.tribal){money+=m*gaps[ti++]/gs;if(f)util=.80}else money-=m/2;return{...d,money,util}});
+  const align=100-now.reduce((a,d)=>a+Math.abs(d.need-d.money),0)/2;
+  const reach=now.reduce((a,d)=>a+d.money*d.util,0);
+  pairedBars(document.getElementById("playChart"),now,40);
+  document.getElementById("sAlign").textContent=Math.round(align);
+  document.getElementById("sReach").textContent=Math.round(reach);
+  document.getElementById("bAlign").style.width=align+"%";
+  document.getElementById("bReach").style.width=reach+"%";
+  const v=document.getElementById("verdict");
+  if(m===0&&!f){v.className="verdict v-warn";v.textContent="Status quo: Pune and Mumbai Suburban spend well, but the money sits where need is lowest. Try moving some."}
+  else if(m>0&&!f&&reach<76){v.className="verdict v-bad";v.textContent=`Alignment rose to ${Math.round(align)}, but only ₹${Math.round(reach)} of every ₹100 now gets spent. Tribal districts can't absorb it: the pipe is blocked. Riya may still not get THR.`}
+  else if(f&&m<10){v.className="verdict v-warn";v.textContent="Pipeline fixed, good. But most money still sits in low-need districts. Move more."}
+  else if(f){v.className="verdict v-good";v.textContent=`This is the reallocation menu worth taking to the Finance Secretary: move ₹ to need AND fix release. Alignment ${Math.round(align)}, ₹${Math.round(reach)} of every ₹100 spent at Anganwadis.`}
+  else{v.className="verdict v-warn";v.textContent="A small move with little effect on either score."}
+}
+move.addEventListener("input",runPlay);fix.addEventListener("change",runPlay);runPlay();
+
+/* ---------- Checklist ---------- */
+const items=[
+  ["qn","Mapped nutrition budget lines across WCD, Health, Water & Sanitation, Education"],
+  ["qn","District-wise allocation compared with district-wise need (NFHS / Poshan Tracker)"],
+  ["qn","Traced funds: budgeted → released → spent, at state and district level"],
+  ["qn","Monthly expenditure pattern checked for March bunching"],
+  ["ql","Collected evidence on cost per outcome from other states / global studies"],
+  ["ql","Built a multi-year, multi-district panel of spend + outcome indicators"],
+  ["ql","Ranked interventions by outcome per rupee"],
+  ["ql","Checked Economy, Efficiency, Effectiveness for one scheme"],
+  ["ad","Identified the decision moment (budget prep / supplementary / review meeting)"],
+  ["ad","Named the official who will use the output (e.g., Finance Secy, Dev. Commissioner)"],
+  ["ad","Produced a reallocation menu or one-page decision brief"],
+  ["ad","Output was actually used in a government decision"]];
+const lbl={qn:"Quantity",ql:"Quality",ad:"Adoption"};
+let saved=[];try{saved=JSON.parse(localStorage.getItem("r2r-checks")||"[]")}catch(e){}
+const ck=document.getElementById("check");
+items.forEach(([t,txt],i)=>{const l=document.createElement("label");l.htmlFor="c"+i;l.innerHTML=`<input type="checkbox" id="c${i}" ${saved.includes(i)?"checked":""}><span>${txt}</span><span class="trk ${t}">${lbl[t]}</span>`;ck.appendChild(l)});
+function prog(){const on=items.map((_,i)=>document.getElementById("c"+i).checked);
+  try{localStorage.setItem("r2r-checks",JSON.stringify(on.map((v,i)=>v?i:-1).filter(i=>i>=0)))}catch(e){}
+  const p=document.getElementById("prog");p.innerHTML="";
+  ["qn","ql","ad"].forEach(t=>{const idx=items.map((x,i)=>x[0]===t?i:-1).filter(i=>i>=0);const n=idx.filter(i=>on[i]).length,pct=Math.round(n/idx.length*100);
+    const d=document.createElement("div");d.innerHTML=`<b>${lbl[t]} Track</b><div class="meter"><i class="${t}" style="width:${pct}%"></i></div><span class="mono">${n}/${idx.length}</span>`;p.appendChild(d)});
+  const qn=items.filter((x,i)=>x[0]==="qn"&&on[i]).length,ad=items.filter((x,i)=>x[0]==="ad"&&on[i]).length;
+  const tip=document.createElement("p");tip.style.fontSize=".92rem";
+  tip.textContent=qn<3?"Next step: finish the Quantity Track. Value for Money can't be read until delivery is steady.":ad<2?"Your analysis is strong. The gap is adoption: tie it to a decision moment and a named official.":"You have the full chain. The next job is the DSS handshake: making this a standing part of the annual budget and review cycle.";
+  p.appendChild(tip)}
+ck.addEventListener("change",prog);prog();
+
+/* ---------- ABC ---------- */
+const abc=[["A","Allocative efficiency","Is money going to the places and groups with the most need?"],["B","Bunching","Spending piled up at year-end, usually March. A sign of a blocked pipe."],["C","Cost-Benefit Analysis","Which design gives the most outcome per rupee? Can be done before spending."],["D","DSS","Decision Support System: outcome analytics. QoE adds the money lens to it."],["E","Economy, Efficiency, Effectiveness","The 3 Es of Value for Money: bought cheap, delivered well, moved outcomes."],["F","Fund flow","The path of a rupee: budget → release → district → project → Anganwadi."],["G","Gap","Difference between share of need and share of money in a place."],["H","Handshake","DSS (what moved?) + QoE (what did it cost?) = the complete chain."],["I","Inputs","What money buys: THR, staff, weighing scales, IFA tablets."],["J","Judgement vs diagnosis","Allocative lens judges the structure; technical lens diagnoses the blockage."],["K","Knowledge to action","The adoption problem: frameworks exist, decisions don't use them."],["L","Loop","Formulate → release → review → redesign → next year."]];
+const ab=document.getElementById("abc");abc.forEach(([l,t,d])=>{const x=document.createElement("div");x.innerHTML=`<b>${l}</b><span><em>${t}</em>${d}</span>`;ab.appendChild(x)});
+</script>
+
+</body></html>
